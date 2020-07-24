@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components"
 const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
+        font-size: 62.5%; 
     }
 
     *,
@@ -12,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        padding: 80px 85px;
-        margin: 0;
+        font-size: 1.6rem;
+        margin: 100px 0 0 0;
         font-family: 'Montserrat';
     }
 

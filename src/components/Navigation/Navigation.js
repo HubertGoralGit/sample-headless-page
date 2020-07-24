@@ -15,6 +15,11 @@ const NavigationWrapper = styled.nav`
   background: transparent;
   font-family: "Montserrat";
   padding: 0 35px;
+  z-index: 100;
+
+  @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
+    padding: 0 70px;
+  }
 `
 
 const NavigationList = styled.ul`
@@ -32,24 +37,25 @@ const NavigationList = styled.ul`
   transform: translate(${({ isVisible }) => (isVisible ? "0" : "100%")});
   transition: transform 0.3s ease-in-out;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
     transform: none;
     height: auto;
     width: auto;
     flex-direction: row;
     position: static;
     padding-top: 0;
+    background: transparent;
   }
 `
 
 const NavigationListItem = styled.li`
   font-weight: 600;
-  font-size: 32px;
+  font-size: ${({ theme }) => theme.fontSize.l};
   margin-bottom: 32px;
   color: #356ead;
 
-  @media only screen and (min-width: 768px) {
-    font-size: 16px;
+  @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
+    font-size: ${({ theme }) => theme.fontSize.xs};
     margin-bottom: 0;
     margin-left: 32px;
     text-transform: lowercase;
@@ -62,7 +68,7 @@ const NavigationListItem = styled.li`
 `
 
 const StyledHamburgerMenu = styled(HamburgerMenu)`
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
     display: none;
   }
 `
