@@ -25,13 +25,15 @@ const HeroContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 20px 40px 0;
+  justify-content: space-around;
 
   @media only screen and (min-width: ${({ theme }) => theme.resolution.l}) {
     width: 50%;
     text-align: left;
     align-items: flex-start;
     margin-left: 60px;
+    justify-content: center;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.resolution.xl}) {
