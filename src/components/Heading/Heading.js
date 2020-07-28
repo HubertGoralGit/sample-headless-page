@@ -24,6 +24,12 @@ const Heading = styled.h1`
     small &&
     css`
       font-size: ${({ theme }) => theme.fontSize.s};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.resolution.md}) {
+        font-size: ${({ theme }) => theme.fontSize.m};
+        line-height: 32px;
+      }
     `}
 
 `

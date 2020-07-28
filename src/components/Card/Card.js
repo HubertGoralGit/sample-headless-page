@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, StaticQuery } from "gatsby"
+import { StaticQuery } from "gatsby"
 import Image from "gatsby-image"
 import Heading from "../Heading/Heading"
 import Paragraph from "../Paragraph/Paragraph"
@@ -16,11 +16,11 @@ const CardWrapper = styled.div`
   border-radius: 10px;
   padding: 0 30px 48px 30px;
   margin-bottom: 40px;
+  margin-top: 0;
 
-  @media only screen and (min-width: ${({ theme }) =>
-    theme.resolution.md}) {
-      width: 300px;
-    }
+  @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
+    width: 350px;
+  }
 `
 
 const StyledImage = styled(Image)`
@@ -35,25 +35,28 @@ const ImageWrapper = styled.div`
   justify-content: center;
 `
 
-const Card = ({id, title, content, slide}) => (
-  <CardWrapper id={id} data-sal={slide} data-sal-delay="300" data-sal-easing="ease">
+const StyledHeading = styled(Heading)`
+  @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
+    font-size: ${({ theme }) => theme.fontSize.s};
+  }
+`
+
+const Card = ({ id, title, content, slide, query }) => (
+  <CardWrapper
+    id={id}
+    data-sal={slide}
+    data-sal-delay="300"
+    data-sal-easing="ease"
+  >
     <ImageWrapper>
       <StaticQuery
-        query={graphql`
-          query {
-            file(name: { eq: "card-2" }) {
-              childImageSharp {
-                fluid(quality: 100) {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
-              }
-            }
-          }
-        `}
+        query={query}
         render={data => <StyledImage fluid={data.file.childImageSharp.fluid} />}
       />
     </ImageWrapper>
-    <Heading small titl={title}>{title}</Heading>
+    <StyledHeading small titl={title}>
+      {title}
+    </StyledHeading>
     <Paragraph content={content}>{content}</Paragraph>
   </CardWrapper>
 )
