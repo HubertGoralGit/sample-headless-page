@@ -8,6 +8,11 @@ const Heading = styled.h1`
     css`
       color: white;
     `}
+    ${({ normal }) =>
+      normal &&
+      css`
+        font-weight: normal;
+      `}
   ${({ big }) =>
     big &&
     css`

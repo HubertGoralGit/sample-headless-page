@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { StaticQuery } from "gatsby"
-import Image from "gatsby-image"
 import Heading from "../Heading/Heading"
 import Paragraph from "../Paragraph/Paragraph"
 
@@ -23,10 +22,6 @@ const CardWrapper = styled.div`
   }
 `
 
-const StyledImage = styled(Image)`
-  width: 65%;
-`
-
 const ImageWrapper = styled.div`
   width: 100%;
   height: 40%;
@@ -41,7 +36,7 @@ const StyledHeading = styled(Heading)`
   }
 `
 
-const Card = ({ id, title, content, slide, query }) => (
+const Card = ({ id, title, content, slide, query, render }) => (
   <CardWrapper
     id={id}
     data-sal={slide}
@@ -49,16 +44,39 @@ const Card = ({ id, title, content, slide, query }) => (
     data-sal-easing="ease"
   >
     <ImageWrapper>
-      <StaticQuery
-        query={query}
-        render={data => <StyledImage fluid={data.file.childImageSharp.fluid} />}
-      />
+      <StaticQuery query={query} render={render} />
     </ImageWrapper>
-    <StyledHeading small titl={title}>
+    <StyledHeading small title={title}>
       {title}
     </StyledHeading>
     <Paragraph content={content}>{content}</Paragraph>
   </CardWrapper>
 )
+
+export const query = graphql`
+  query {
+    image1: file(name: { eq: "card-1" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    image2: file(name: { eq: "card-2" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    image3: file(name: { eq: "card-3" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`
 
 export default Card
