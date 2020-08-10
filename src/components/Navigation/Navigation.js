@@ -123,9 +123,6 @@ class Navigation extends Component {
             <Link to="/articles">Articles</Link>
           </NavigationListItem>
           <NavigationListItem onClick={this.handleShowMenu.bind(this)}>
-            <Link to="/gallery">Gallery</Link>
-          </NavigationListItem>
-          <NavigationListItem onClick={this.handleShowMenu.bind(this)}>
             <Link to="/contact">Contact</Link>
           </NavigationListItem>
         </NavigationList>

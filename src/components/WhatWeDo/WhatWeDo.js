@@ -61,7 +61,7 @@ const CardsWrapper = styled.div`
 `
 
 const WhatWeDo = ({ data }) => (
-  <WhatWeDoWrapper>
+  <WhatWeDoWrapper id="whatwedo">
     <StyledHeading small>
       What we do to help our client grow in digital era
     </StyledHeading>

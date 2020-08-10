@@ -92,8 +92,12 @@ const StyledImage = styled(Image)`
   height: 100%;
   border-radius: 10px;
   img {
-    object-fit: fill !important;
+    object-fit: cover !important;
     object-position: 0 0 !important;
+
+    @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
+      object-fit: fill !important;
+    }
   }
 `
 
@@ -106,7 +110,7 @@ const StyledImageContent = styled.div`
   width: 400px;
 
   &.first {
-    left: 190px;
+    left: 20px;
 
     @media only screen and (min-width: ${({ theme }) => theme.resolution.md}) {
       left: calc(100% - 350px);
@@ -120,7 +124,7 @@ const StyledHeadingImage = styled(Heading)`
 `
 
 const OurProject = ({ data }) => (
-  <OurProjectWrapper>
+  <OurProjectWrapper id="project">
     <TitleWrapper>
       <StyledHeading small>Our Finished Project</StyledHeading>
       <StyledParagraph>

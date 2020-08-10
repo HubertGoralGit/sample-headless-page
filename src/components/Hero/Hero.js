@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-image"
+import scrollTo from "gatsby-plugin-smoothscroll"
 import Heading from "../Heading/Heading"
 import Button from "../Button/Button"
 import Paragraph from "../Paragraph/Paragraph"
@@ -68,7 +69,7 @@ const StyledImage = styled(Image)`
 `
 
 const Hero = () => (
-  <HeroWrapper>
+  <HeroWrapper id="hero">
     <HeroContentWrapper>
       <HeroHeading big>New Automation Tool for Your Home</HeroHeading>
       <HeroParagraph>
@@ -76,7 +77,7 @@ const Hero = () => (
         tristique vulputate ultrices ut mauris tellus at. Posuere sollicitudin
         odio tellus elit.
       </HeroParagraph>
-      <Button>See Our Project</Button>
+      <Button onClick={() => scrollTo("#project")}>See Our Project</Button>
     </HeroContentWrapper>
     <StaticQuery
       query={graphql`

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Hero from "../components/Hero/Hero"
 import WhatWeDo from "../components/WhatWeDo/WhatWeDo"
 import OurProject from "../components/OurProject/OurProject"
-import Footer from '../components/Footer/Footer'
+import HomeFooter from "../components/HomeFooter/HomeFooter"
 
 const HomeWrapper = styled.section`
   display: flex;
@@ -15,7 +15,7 @@ const IndexPage = () => (
     <Hero />
     <WhatWeDo />
     <OurProject />
-    <Footer />
+    <HomeFooter />
   </HomeWrapper>
 )
 
